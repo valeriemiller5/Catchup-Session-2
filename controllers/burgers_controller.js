@@ -9,7 +9,7 @@
 const router = require("express").Router();
 
 // grabbing our models
-const Burger = require("../models/Burger");
+const Burger = require("../models/MyBurger");
 
 // get route -> index
 router.get("/", function (req, res) {
