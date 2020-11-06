@@ -1,15 +1,20 @@
-// Burger models
-
-// The burger has a burger_name attribute of type DataTypes.String
-// and a devoured attribute that is false by default
+// import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
+// import our database connection from config.js
+const sequelize = require('../config/config');
 
-const sequelize = require("../config/config");
+// Initialize Product model (table) by extending off Sequelize's Model class
+class Burger extends Model {}
 
-class Burger extends Model {};
-
+// set up fields and rules for Product model
 Burger.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     burger_name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -17,14 +22,14 @@ Burger.init(
     devoured: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
-    }
-  }, 
+    },
+  },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'burger'
+    modelName: 'burger',
   }
 );
 

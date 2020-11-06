@@ -8,6 +8,8 @@
 // Step 5: Updated findAll query  in burger_controller for burgers to "include" the customer
 // Step 6: Updated findAll query in burger_controller to order returned burgers by burger_name.
 
+//This app has been deployed to Heroku under the link https://enigmatic-caverns-91091.herokuapp.com/
+
 
 var express = require("express");
 const sequelize = require('./config/config');
@@ -36,7 +38,7 @@ var routes = require("./controllers/burgers_controller");
 app.use(routes);
 
 // listen on port 3000
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3001;
 sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
